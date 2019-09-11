@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SearchViewController.swift
 //  PokéList
 //
 //  Created by Emerson Victor on 10/09/19.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
 
 }
 
