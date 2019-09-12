@@ -9,11 +9,11 @@
 import XCTest
 import UIKit
 
-class TypeTests: XCTestCase {
+class PoekTypeTests: XCTestCase {
 
     func testInitializer() {
         for type in TypeColor.types.keys {
-            let typeObject = Type(name: type)
+            let typeObject = PokeType(name: type)
             
             XCTAssertEqual(typeObject.name, type, "Initilized type name was incorret.")
             XCTAssertEqual(typeObject.color, TypeColor.types[type], "Initilized type color was incorret.")

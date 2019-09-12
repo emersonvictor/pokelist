@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 
-class Type: Equatable {
+class PokeType: Equatable {
     let name: String
     let color: UIColor?
     
+    /// Create Pokémon type from name
+    ///
+    /// - Parameter name: Pókemon type name
     init(name: String) {
         self.name = name
         if let color = TypeColor.types[name] {
@@ -22,7 +25,13 @@ class Type: Equatable {
         }
     }
     
-    static func == (lhs: Type, rhs: Type) -> Bool {
+    /// Check equality between two instaces of a Pokémon type
+    ///
+    /// - Parameters:
+    ///   - lhs: Pókemon type object
+    ///   - rhs: Pókemon type object
+    /// - Returns: Booleaon representing if the two Pokémon type object has the same name
+    static func == (lhs: PokeType, rhs: PokeType) -> Bool {
         return lhs.name == rhs.name
     }
 }

@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class FileManager {
+    static func getPokelist() -> [Int: Any] {
+        return [:]
+    }
+    
+    static func save(pokemon: [Int: Any]) -> Bool {
+        return true
+    }
+}

@@ -28,7 +28,7 @@ class PokemonTests: XCTestCase {
         XCTAssertEqual(pokemon.hp, json["hp"] as! Int, "Pokemon hp initialized was incorret")
         XCTAssertEqual(pokemon.attack, json["attack"] as! Int, "Pokemon attack initialized was incorret")
         XCTAssertEqual(pokemon.defense, json["defense"] as! Int, "Pokemon defense initialized was incorret")
-        XCTAssertEqual(pokemon.type1, Type(name: json["type1"] as! String), "Pokemon type1 initialized was incorret")
+        XCTAssertEqual(pokemon.type1, PokeType(name: json["type1"] as! String), "Pokemon type1 initialized was incorret")
         XCTAssertEqual(pokemon.type2, nil, "Pokemon type2 initialized was incorret")
     }
     
@@ -50,7 +50,7 @@ class PokemonTests: XCTestCase {
         XCTAssertEqual(pokemon.hp, json["hp"] as! Int, "Pokemon hp initialized was incorret")
         XCTAssertEqual(pokemon.attack, json["attack"] as! Int, "Pokemon attack initialized was incorret")
         XCTAssertEqual(pokemon.defense, json["defense"] as! Int, "Pokemon defense initialized was incorret")
-        XCTAssertEqual(pokemon.type1, Type(name: json["type1"] as! String), "Pokemon type1 initialized was incorret")
-        XCTAssertEqual(pokemon.type2, Type(name: json["type2"] as! String), "Pokemon type2 initialized was incorret")
+        XCTAssertEqual(pokemon.type1, PokeType(name: json["type1"] as! String), "Pokemon type1 initialized was incorret")
+        XCTAssertEqual(pokemon.type2, PokeType(name: json["type2"] as! String), "Pokemon type2 initialized was incorret")
     }
 }
