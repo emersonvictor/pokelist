@@ -23,8 +23,16 @@
 		D9A223292328256F00DBA9E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A223272328256F00DBA9E0 /* Main.storyboard */; };
 		D9A2232B2328257100DBA9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A2232A2328257100DBA9E0 /* Assets.xcassets */; };
 		D9A2232E2328257100DBA9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A2232C2328257100DBA9E0 /* LaunchScreen.storyboard */; };
-		D9A223392328257100DBA9E0 /* Poke_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223382328257100DBA9E0 /* Poke_ListTests.swift */; };
-		D9A223442328257100DBA9E0 /* Poke_ListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223432328257100DBA9E0 /* Poke_ListUITests.swift */; };
+		D9A223392328257100DBA9E0 /* PokeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223382328257100DBA9E0 /* PokeListTests.swift */; };
+		D9A223442328257100DBA9E0 /* PokeListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223432328257100DBA9E0 /* PokeListUITests.swift */; };
+		D9DA3440232A642D0036C9DE /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA343F232A642D0036C9DE /* TypeTests.swift */; };
+		D9DA3446232A69940036C9DE /* TypeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA3445232A69940036C9DE /* TypeColors.swift */; };
+		D9DA3447232A6C450036C9DE /* TypeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA3445232A69940036C9DE /* TypeColors.swift */; };
+		D9DA3448232A6C620036C9DE /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47AD232997D7003F9847 /* Type.swift */; };
+		D9DA3449232A6C660036C9DE /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47AB232997CC003F9847 /* Pokemon.swift */; };
+		D9DA344A232A6C690036C9DE /* PokeapiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B0232997FC003F9847 /* PokeapiManager.swift */; };
+		D9DA344B232A6C690036C9DE /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B22329980D003F9847 /* FileManager.swift */; };
+		D9DA344C232A6C690036C9DE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B523299825003F9847 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,11 +77,13 @@
 		D9A2232D2328257100DBA9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9A2232F2328257100DBA9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A223342328257100DBA9E0 /* PokeListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9A223382328257100DBA9E0 /* Poke_ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_ListTests.swift; sourceTree = "<group>"; };
+		D9A223382328257100DBA9E0 /* PokeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListTests.swift; sourceTree = "<group>"; };
 		D9A2233A2328257100DBA9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A2233F2328257100DBA9E0 /* PokeListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9A223432328257100DBA9E0 /* Poke_ListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_ListUITests.swift; sourceTree = "<group>"; };
+		D9A223432328257100DBA9E0 /* PokeListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListUITests.swift; sourceTree = "<group>"; };
 		D9A223452328257100DBA9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9DA343F232A642D0036C9DE /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
+		D9DA3445232A69940036C9DE /* TypeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColors.swift; sourceTree = "<group>"; };
 		F399ED9F988A6FE11C984E91 /* Pods-PokeListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeListUITests.release.xcconfig"; path = "Target Support Files/Pods-PokeListUITests/Pods-PokeListUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +239,7 @@
 			children = (
 				D94F47A023299667003F9847 /* Application */,
 				D94F47A123299671003F9847 /* Model */,
+				D9DA3444232A69640036C9DE /* Utils */,
 				D94F47A32329967E003F9847 /* View */,
 				D94F47A223299679003F9847 /* ViewModel */,
 			);
@@ -238,7 +249,8 @@
 		D9A223372328257100DBA9E0 /* PokeListTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9A223382328257100DBA9E0 /* Poke_ListTests.swift */,
+				D9DA3441232A64320036C9DE /* Model */,
+				D9A223382328257100DBA9E0 /* PokeListTests.swift */,
 				D9A2233A2328257100DBA9E0 /* Info.plist */,
 			);
 			path = PokeListTests;
@@ -247,10 +259,34 @@
 		D9A223422328257100DBA9E0 /* PokeListUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D9A223432328257100DBA9E0 /* Poke_ListUITests.swift */,
+				D9A223432328257100DBA9E0 /* PokeListUITests.swift */,
 				D9A223452328257100DBA9E0 /* Info.plist */,
 			);
 			path = PokeListUITests;
+			sourceTree = "<group>";
+		};
+		D9DA3441232A64320036C9DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9DA3442232A64390036C9DE /* Entities */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9DA3442232A64390036C9DE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D9DA343F232A642D0036C9DE /* TypeTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		D9DA3444232A69640036C9DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D9DA3445232A69940036C9DE /* TypeColors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +300,7 @@
 				D9A2231A2328256F00DBA9E0 /* Sources */,
 				D9A2231B2328256F00DBA9E0 /* Frameworks */,
 				D9A2231C2328256F00DBA9E0 /* Resources */,
+				D9DA3443232A66ED0036C9DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -427,6 +464,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D9DA3443232A66ED0036C9DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		FC5667600800628C56421289 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +519,7 @@
 				D94F47B32329980D003F9847 /* FileManager.swift in Sources */,
 				D94F47B623299825003F9847 /* StorageManager.swift in Sources */,
 				D94F47A7232997A2003F9847 /* HomeViewModel.swift in Sources */,
+				D9DA3446232A69940036C9DE /* TypeColors.swift in Sources */,
 				D94F47AC232997CC003F9847 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +528,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A223392328257100DBA9E0 /* Poke_ListTests.swift in Sources */,
+				D9DA3449232A6C660036C9DE /* Pokemon.swift in Sources */,
+				D9DA344A232A6C690036C9DE /* PokeapiManager.swift in Sources */,
+				D9A223392328257100DBA9E0 /* PokeListTests.swift in Sources */,
+				D9DA344B232A6C690036C9DE /* FileManager.swift in Sources */,
+				D9DA3447232A6C450036C9DE /* TypeColors.swift in Sources */,
+				D9DA3440232A642D0036C9DE /* TypeTests.swift in Sources */,
+				D9DA3448232A6C620036C9DE /* Type.swift in Sources */,
+				D9DA344C232A6C690036C9DE /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A223442328257100DBA9E0 /* Poke_ListUITests.swift in Sources */,
+				D9A223442328257100DBA9E0 /* PokeListUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +748,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XP4ML92KUD;
-				INFOPLIST_FILE = "PokéListTests/Info.plist";
+				INFOPLIST_FILE = PokeListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -708,7 +770,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XP4ML92KUD;
-				INFOPLIST_FILE = "PokéListTests/Info.plist";
+				INFOPLIST_FILE = PokeListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,7 +791,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XP4ML92KUD;
-				INFOPLIST_FILE = "PokéListUITests/Info.plist";
+				INFOPLIST_FILE = PokeListUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -750,7 +812,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XP4ML92KUD;
-				INFOPLIST_FILE = "PokéListUITests/Info.plist";
+				INFOPLIST_FILE = PokeListUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,5 +1,5 @@
 //
-//  Poke_ListTests.swift
+//  PokeListTests.swift
 //  PokéListTests
 //
 //  Created by Emerson Victor on 10/09/19.
@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import Poke_List
+@testable import PokeList
 
-class Poke_ListTests: XCTestCase {
+class PokeListTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
