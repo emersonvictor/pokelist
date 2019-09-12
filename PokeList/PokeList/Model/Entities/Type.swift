@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Type {
+class Type: Equatable {
     let name: String
     let color: UIColor?
     
@@ -20,5 +20,9 @@ class Type {
         } else {
             self.color = nil
         }
+    }
+    
+    static func == (lhs: Type, rhs: Type) -> Bool {
+        return lhs.name == rhs.name
     }
 }

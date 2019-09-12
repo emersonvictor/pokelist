@@ -17,6 +17,7 @@
 		D94F47B1232997FC003F9847 /* PokeapiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B0232997FC003F9847 /* PokeapiManager.swift */; };
 		D94F47B32329980D003F9847 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B22329980D003F9847 /* FileManager.swift */; };
 		D94F47B623299825003F9847 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94F47B523299825003F9847 /* StorageManager.swift */; };
+		D97E9529232A79A400EE128C /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97E9528232A79A400EE128C /* PokemonTests.swift */; };
 		D9A223222328256F00DBA9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223212328256F00DBA9E0 /* AppDelegate.swift */; };
 		D9A223242328256F00DBA9E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223232328256F00DBA9E0 /* HomeViewController.swift */; };
 		D9A223262328256F00DBA9E0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223252328256F00DBA9E0 /* SearchViewController.swift */; };
@@ -68,6 +69,7 @@
 		D94F47B0232997FC003F9847 /* PokeapiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeapiManager.swift; sourceTree = "<group>"; };
 		D94F47B22329980D003F9847 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D94F47B523299825003F9847 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		D97E9528232A79A400EE128C /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		D9A2231E2328256F00DBA9E0 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A223212328256F00DBA9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A223232328256F00DBA9E0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				D9DA343F232A642D0036C9DE /* TypeTests.swift */,
+				D97E9528232A79A400EE128C /* PokemonTests.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			files = (
 				D9DA3449232A6C660036C9DE /* Pokemon.swift in Sources */,
 				D9DA344A232A6C690036C9DE /* PokeapiManager.swift in Sources */,
+				D97E9529232A79A400EE128C /* PokemonTests.swift in Sources */,
 				D9A223392328257100DBA9E0 /* PokeListTests.swift in Sources */,
 				D9DA344B232A6C690036C9DE /* FileManager.swift in Sources */,
 				D9DA3447232A6C450036C9DE /* TypeColors.swift in Sources */,
