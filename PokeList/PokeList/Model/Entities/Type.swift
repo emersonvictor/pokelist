@@ -11,10 +11,14 @@ import UIKit
 
 class Type {
     let name: String
-    let color: UIColor
+    let color: UIColor?
     
-    init(name: String, color: UIColor) {
+    init(name: String) {
         self.name = name
-        self.color = color
+        if let color = TypeColor.types[name] {
+            self.color = color
+        } else {
+            self.color = nil
+        }
     }
 }

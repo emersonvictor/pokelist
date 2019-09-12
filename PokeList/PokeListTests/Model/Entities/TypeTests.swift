@@ -12,12 +12,11 @@ import UIKit
 class TypeTests: XCTestCase {
 
     func testInitializer() {
-        let normalType = Type(name: "Normal", color: TypeColors.normal)
-        
-        XCTAssertEqual(normalType.name, "Normal", "Initilized type name was incorret.")
-        XCTAssertEqual(normalType.color, TypeColors.normal, "Initilized type color was incorret.")
-    }
-
-    func testJsonInitializer() {
+        for type in TypeColor.types.keys {
+            let typeObject = Type(name: type)
+            
+            XCTAssertEqual(typeObject.name, type, "Initilized type name was incorret.")
+            XCTAssertEqual(typeObject.color, TypeColor.types[type], "Initilized type color was incorret.")
+        }
     }
 }
