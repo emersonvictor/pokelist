@@ -1,0 +1,18 @@
+[
+    {
+        "id": 132,
+        "name": "Ditto",
+        "hp": 48,
+        "attack": 48,
+        "defense": 48,
+        "type": ["normal"]
+    },
+    {
+        "id": 1,
+        "name": "bulbasaur",
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "type": ["poison", "grass"]
+    }
+]

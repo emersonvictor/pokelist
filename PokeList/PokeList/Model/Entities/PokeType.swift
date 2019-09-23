@@ -9,28 +9,38 @@
 import Foundation
 import UIKit
 
-class PokeType: Equatable {
+class PokeType {
     let name: String
-    let color: UIColor?
+    let color: UIColor
     
-    /// Create Pokémon type from name
-    ///
-    /// - Parameter name: Pókemon type name
     init(name: String) {
         self.name = name
-        if let color = TypeColor.types[name] {
-            self.color = color
-        } else {
-            self.color = nil
-        }
+        self.color = TypeColor.types[name] ?? UIColor.clear
     }
-    
-    /// Check equality between two instaces of a Pokémon type
-    ///
-    /// - Parameters:
-    ///   - lhs: Pókemon type object
-    ///   - rhs: Pókemon type object
-    /// - Returns: Booleaon representing if the two Pokémon type object has the same name
+}
+
+// MARK: - Encodable protocol
+extension PokeType: Encodable {
+    func encode(to encoder: Encoder) throws {
+       var container = encoder.container(keyedBy: CodingKeys.self)
+       
+       try container.encode(self.name, forKey: .name)
+    }
+   
+   enum CodingKeys: String, CodingKey {
+       case name
+   }
+}
+
+// MARK: - Hashable protocol
+extension PokeType: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.name)
+    }
+}
+
+// MARK: - Equatable protocol
+extension PokeType: Equatable {
     static func == (lhs: PokeType, rhs: PokeType) -> Bool {
         return lhs.name == rhs.name
     }

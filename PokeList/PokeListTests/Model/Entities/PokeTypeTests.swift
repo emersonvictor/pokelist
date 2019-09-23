@@ -11,6 +11,7 @@ import UIKit
 
 class PoekTypeTests: XCTestCase {
 
+    // MARK: - Initializer
     func testInitializer() {
         for type in TypeColor.types.keys {
             let typeObject = PokeType(name: type)

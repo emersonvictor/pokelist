@@ -8,27 +8,46 @@
 
 import Foundation
 
-class Pokemon {
+class Pokemon: Codable {
     let id: Int
     let name: String
     let hp: Int
     let attack: Int
     let defense: Int
-    let type1: PokeType
-    let type2: PokeType?
+    let types: Set<PokeType>
+
+    init(id: Int, name: String, hp: Int, attack: Int, defense: Int, types: [String]) {
+        self.id = id
+        self.name = name
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
+        self.types = Set(types.map { (type) in
+            PokeType(name: type)
+        })
+    }
     
-    init(with json: [String: Any?]) {
-        self.id = json["id"] as! Int
-        self.name = json["name"] as! String
-        self.hp = json["hp"] as! Int
-        self.attack = json["attack"] as! Int
-        self.defense = json["defense"] as! Int
-        self.type1 = PokeType(name: json["type1"] as! String)
-        
-        if let type2 = json["type2"] as! String? {
-            self.type2 = PokeType(name: type2)
-        } else {
-            self.type2 = nil
-        }
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Pokemon.CodingKeys.self)
+
+        let id = try container.decode(Int.self, forKey: .id)
+        let name = try container.decode(String.self, forKey: .name)
+        let hp = try container.decode(Int.self, forKey: .hp)
+        let attack = try container.decode(Int.self, forKey: .attack)
+        let defense = try container.decode(Int.self, forKey: .defense)
+        let types: [String] = try container.decode([String].self, forKey: .types)
+
+        self.init(id: id, name: name, hp: hp, attack: attack, defense: defense, types: types)
+    }
+}
+
+// MARK: - Equatable protocol
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.name == rhs.name &&
+               lhs.hp == rhs.hp &&
+               lhs.attack == rhs.defense &&
+               lhs.types == rhs.types
     }
 }
