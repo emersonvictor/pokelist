@@ -20,7 +20,6 @@
 		D96415B92333B85E00645498 /* FileLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96415B82333B85E00645498 /* FileLoaderTests.swift */; };
 		D96415BB2333BA4800645498 /* Pokelist.json in Resources */ = {isa = PBXBuildFile; fileRef = D96415BA2333BA4800645498 /* Pokelist.json */; };
 		D977144A233900F8003F119B /* TestPokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = D97714482338FFFD003F119B /* TestPokemon.json */; };
-		D977144E23391095003F119B /* TestErrorPokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = D977144C23390340003F119B /* TestErrorPokemon.json */; };
 		D97714532339502A003F119B /* TestPokelist.json in Resources */ = {isa = PBXBuildFile; fileRef = D977144F23394400003F119B /* TestPokelist.json */; };
 		D97E9529232A79A400EE128C /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97E9528232A79A400EE128C /* PokemonTests.swift */; };
 		D9A223222328256F00DBA9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A223212328256F00DBA9E0 /* AppDelegate.swift */; };
@@ -67,6 +66,7 @@
 		801A11033B7855D8F4DEFDD8 /* Pods-PokeListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeListTests.debug.xcconfig"; path = "Target Support Files/Pods-PokeListTests/Pods-PokeListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B86D8A9405703B1A48E583E5 /* Pods-PokeList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeList.release.xcconfig"; path = "Target Support Files/Pods-PokeList/Pods-PokeList.release.xcconfig"; sourceTree = "<group>"; };
 		D5AC736D9D321B2DF548AEC1 /* Pods_PokeListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D94CDAD6233A47AD0001A8A5 /* TestErrorPokemon copy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "TestErrorPokemon copy.json"; sourceTree = "<group>"; };
 		D94F47A6232997A2003F9847 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D94F47A8232997AD003F9847 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D94F47AB232997CC003F9847 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 		D96415B82333B85E00645498 /* FileLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoaderTests.swift; sourceTree = "<group>"; };
 		D96415BA2333BA4800645498 /* Pokelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pokelist.json; sourceTree = "<group>"; };
 		D97714482338FFFD003F119B /* TestPokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestPokemon.json; sourceTree = "<group>"; };
-		D977144C23390340003F119B /* TestErrorPokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestErrorPokemon.json; sourceTree = "<group>"; };
 		D977144F23394400003F119B /* TestPokelist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestPokelist.json; sourceTree = "<group>"; };
 		D97E9528232A79A400EE128C /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		D9A2231E2328256F00DBA9E0 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,7 +235,7 @@
 		D977144D233903E3003F119B /* TestsJson */ = {
 			isa = PBXGroup;
 			children = (
-				D977144C23390340003F119B /* TestErrorPokemon.json */,
+				D94CDAD6233A47AD0001A8A5 /* TestErrorPokemon copy.json */,
 				D977144F23394400003F119B /* TestPokelist.json */,
 				D97714482338FFFD003F119B /* TestPokemon.json */,
 			);
@@ -444,7 +443,6 @@
 			files = (
 				D977144A233900F8003F119B /* TestPokemon.json in Resources */,
 				D97714532339502A003F119B /* TestPokelist.json in Resources */,
-				D977144E23391095003F119B /* TestErrorPokemon.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

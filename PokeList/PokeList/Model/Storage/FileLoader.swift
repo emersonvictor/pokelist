@@ -17,12 +17,22 @@ class FileLoader {
     var jsonPath = Bundle.main.path(forResource: "Pokelist", ofType: "json")
     
     // Get pokelist from json
-    func getPokelist() -> [Pokemon] {
-        return []
+    func getPokelist() -> [Pokemon]? {
+        do {
+            /// Try to create pokelist from json
+            let pokelistData: Data = try Data(contentsOf: URL(fileURLWithPath: self.jsonPath!))
+            
+            let pokelistFromJson = try JSONDecoder().decode([Pokemon].self, from: pokelistData)
+            
+            return pokelistFromJson
+        } catch {
+            /// Catch error and return nil instead of pokelist
+            return nil
+        }
     }
     
     // Save new pokemon into the pokelist json
-    func save(pokemon: Pokemon) -> Bool {
+    func save(pokelist: [Pokemon]) -> Bool {
         return true
     }
 }

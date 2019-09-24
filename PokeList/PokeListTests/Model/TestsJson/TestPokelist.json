@@ -5,7 +5,7 @@
         "hp": 48,
         "attack": 48,
         "defense": 48,
-        "type": ["normal"]
+        "types": ["normal"]
     },
     {
         "id": 1,
@@ -13,6 +13,6 @@
         "hp": 45,
         "attack": 49,
         "defense": 49,
-        "type": ["poison", "grass"]
+        "types": ["poison", "grass"]
     }
 ]

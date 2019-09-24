@@ -22,9 +22,8 @@ class PokeType {
 // MARK: - Encodable protocol
 extension PokeType: Encodable {
     func encode(to encoder: Encoder) throws {
-       var container = encoder.container(keyedBy: CodingKeys.self)
-       
-       try container.encode(self.name, forKey: .name)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.name, forKey: .name)
     }
    
    enum CodingKeys: String, CodingKey {

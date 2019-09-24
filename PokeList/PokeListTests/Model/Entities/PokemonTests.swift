@@ -9,21 +9,24 @@
 import XCTest
 
 class PokemonTests: XCTestCase {
-
-    // Pokemon
+    
+    // MARK: - Variables
     var ditto: Pokemon!
     var bullbasaur: Pokemon!
-    
-    // SetUp
+
+    // MARK: - SetUp
     override func setUp() {
         super.setUp()
         
+        /// Arrange
         self.ditto = Pokemon(id: 132, name: "Ditto", hp: 48, attack: 48, defense: 48, types: ["normal"])
         self.bullbasaur = Pokemon(id: 1, name: "Bulbasaur", hp: 45, attack: 49, defense: 49, types: ["poison", "grass"])
     }
     
     // MARK: - Initializer
+    // GOOD: - Initialize a Pokemon
     func testCorrectInitializer() {
+        /// Assert
         XCTAssertEqual(self.ditto.id, 132)
         XCTAssertEqual(self.ditto.name, "Ditto")
         XCTAssertEqual(self.ditto.hp, 48)
@@ -32,7 +35,9 @@ class PokemonTests: XCTestCase {
         XCTAssertEqual(self.ditto.types, [PokeType(name: "normal")])
     }
     
+    // BAD: - Initialize a Pokemon and compare to other attributes
     func testIncorrectInitializer() {
+        /// Assert
         XCTAssertNotEqual(self.ditto.id, self.bullbasaur.id)
         XCTAssertNotEqual(self.ditto.name, self.bullbasaur.name)
         XCTAssertNotEqual(self.ditto.hp, self.bullbasaur.hp)
@@ -42,26 +47,36 @@ class PokemonTests: XCTestCase {
     }
     
     // MARK: - Json initializer
+    // GOOD: Initialize Pokemon from json
     func testCorrectConvenienceInitializerFromJson() {
         do {
+            /// Arrange
             let testBundle = Bundle(for: type(of: self))
             let pokemonPath = testBundle.path(forResource: "TestPokemon", ofType: "json")
             let pokemonData: Data = try Data(contentsOf: URL(fileURLWithPath: pokemonPath!))
+            
+            /// Act
             let pokemonFromJson = try JSONDecoder().decode(Pokemon.self, from: pokemonData)
 
+            /// Assert
             XCTAssertEqual(self.bullbasaur, pokemonFromJson, "Initialized pokemon was incorret.")
         } catch {
             XCTAssert(false, "Could not create pokemon from json data.")
         }
     }
     
+    // BAD: Initialize Pokemon from incorrect json
     func testIncorrectConvenienceInitializerFromJson() {
         do {
+            /// Arrange
             let testBundle = Bundle(for: type(of: self))
             let pokemonPath = testBundle.path(forResource: "TestErrorPokemon", ofType: "json")
             let pokemonData: Data = try Data(contentsOf: URL(fileURLWithPath: pokemonPath!))
+            
+            /// Act
             let pokemonFromJson = try JSONDecoder().decode(Pokemon.self, from: pokemonData)
 
+            /// Assert
             XCTAssertNotEqual(self.bullbasaur, pokemonFromJson, "Initialized pokemon was correct.")
         } catch {
             XCTAssert(true, "Pokemon created from incorrent json data.")
