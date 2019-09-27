@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PokeType {
+class PokeType: Codable {
     let name: String
     let color: UIColor
     
@@ -17,10 +17,16 @@ class PokeType {
         self.name = name
         self.color = TypeColor.types[name] ?? UIColor.clear
     }
+    
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: PokeType.CodingKeys.self)
+        let name = try container.decode(String.self, forKey: .name)
+        self.init(name: name)
+    }
 }
 
 // MARK: - Encodable protocol
-extension PokeType: Encodable {
+extension PokeType {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.name, forKey: .name)

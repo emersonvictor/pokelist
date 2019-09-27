@@ -12,15 +12,15 @@ class PokemonTests: XCTestCase {
     
     // MARK: - Variables
     var ditto: Pokemon!
-    var bullbasaur: Pokemon!
+    var bulbasaur: Pokemon!
 
     // MARK: - SetUp
     override func setUp() {
         super.setUp()
         
         /// Arrange
-        self.ditto = Pokemon(id: 132, name: "Ditto", hp: 48, attack: 48, defense: 48, types: ["normal"])
-        self.bullbasaur = Pokemon(id: 1, name: "Bulbasaur", hp: 45, attack: 49, defense: 49, types: ["poison", "grass"])
+        self.ditto = Pokemon(id: 132, name: "Ditto", hp: 48, attack: 48, defense: 48, types: [PokeType(name: "normal")])
+        self.bulbasaur = Pokemon(id: 1, name: "Bulbasaur", hp: 45, attack: 49, defense: 49, types: [PokeType(name: "poison"), PokeType(name: "grass")])
     }
     
     // MARK: - Initializer
@@ -38,12 +38,12 @@ class PokemonTests: XCTestCase {
     // BAD: - Initialize a Pokemon and compare to other attributes
     func testIncorrectInitializer() {
         /// Assert
-        XCTAssertNotEqual(self.ditto.id, self.bullbasaur.id)
-        XCTAssertNotEqual(self.ditto.name, self.bullbasaur.name)
-        XCTAssertNotEqual(self.ditto.hp, self.bullbasaur.hp)
-        XCTAssertNotEqual(self.ditto.attack, self.bullbasaur.attack)
-        XCTAssertNotEqual(self.ditto.defense, self.bullbasaur.defense)
-        XCTAssertNotEqual(self.ditto.types, self.bullbasaur.types)
+        XCTAssertNotEqual(self.ditto.id, self.bulbasaur.id)
+        XCTAssertNotEqual(self.ditto.name, self.bulbasaur.name)
+        XCTAssertNotEqual(self.ditto.hp, self.bulbasaur.hp)
+        XCTAssertNotEqual(self.ditto.attack, self.bulbasaur.attack)
+        XCTAssertNotEqual(self.ditto.defense, self.bulbasaur.defense)
+        XCTAssertNotEqual(self.ditto.types, self.bulbasaur.types)
     }
     
     // MARK: - Json initializer
@@ -59,7 +59,7 @@ class PokemonTests: XCTestCase {
             let pokemonFromJson = try JSONDecoder().decode(Pokemon.self, from: pokemonData)
 
             /// Assert
-            XCTAssertEqual(self.bullbasaur, pokemonFromJson, "Initialized pokemon was incorret.")
+            XCTAssertEqual(self.bulbasaur, pokemonFromJson, "Initialized pokemon was incorret.")
         } catch {
             XCTAssert(false, "Could not create pokemon from json data.")
         }
@@ -77,7 +77,7 @@ class PokemonTests: XCTestCase {
             let pokemonFromJson = try JSONDecoder().decode(Pokemon.self, from: pokemonData)
 
             /// Assert
-            XCTAssertNotEqual(self.bullbasaur, pokemonFromJson, "Initialized pokemon was correct.")
+            XCTAssertNotEqual(self.bulbasaur, pokemonFromJson, "Initialized pokemon was correct.")
         } catch {
             XCTAssert(true, "Pokemon created from incorrent json data.")
         }

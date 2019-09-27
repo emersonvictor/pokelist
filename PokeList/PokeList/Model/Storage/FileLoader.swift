@@ -10,13 +10,13 @@ import Foundation
 
 class FileLoader {
     
-    // Pokemon id
+    // MARK: - Typealias
     typealias Id = Int
     
-    // Pokelist path
+    // MARK: - Pokelist path
     var jsonPath = Bundle.main.path(forResource: "Pokelist", ofType: "json")
     
-    // Get pokelist from json
+    // MARK: - Get pokelist from json
     func getPokelist() -> [Pokemon]? {
         do {
             /// Try to create pokelist from json
@@ -31,8 +31,16 @@ class FileLoader {
         }
     }
     
-    // Save new pokemon into the pokelist json
+    // MARK: - Save new pokemon into the pokelist json
     func save(pokelist: [Pokemon]) -> Bool {
-        return true
+        do {
+            let pokelistData = try JSONEncoder().encode(pokelist)
+            try pokelistData.write(to: URL(fileURLWithPath: self.jsonPath!))
+            
+            return true
+        } catch {
+            /// Handle error
+            return false 
+        }
     }
 }

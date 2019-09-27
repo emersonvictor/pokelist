@@ -25,11 +25,12 @@ class FileLoaderTests: XCTestCase {
         
         /// Pokelist
         self.pokelist = [
-        Pokemon(id: 132, name: "Ditto", hp: 48, attack: 48, defense: 48, types: ["normal"]),
-        Pokemon(id: 1, name: "Bulbasaur", hp: 45, attack: 49, defense: 49, types: ["poison", "grass"])
+        Pokemon(id: 132, name: "Ditto", hp: 48, attack: 48, defense: 48, types: [PokeType(name: "normal")]),
+        Pokemon(id: 1, name: "Bulbasaur", hp: 45, attack: 49, defense: 49, types: [PokeType(name: "normal"), PokeType(name: "grass")])
         ]
     }
     
+    // MARK: - Tests
     // GOOD: - Get Pokelist from Json
     func testGetPokeList() {
         do {
@@ -45,21 +46,8 @@ class FileLoaderTests: XCTestCase {
             /// Assert
             XCTAssertEqual(pokelist, pokelistFromJson, "Pokelist from FileLoader was incorret.")
         } catch {
+            print(error)
             XCTAssert(false, "Could not create pokelist from json data.")
-        }
-    }
-    
-    // GOOD: - Save Pokelist into Json
-    func testSavePokemon() {
-        do {
-            /// Act
-            let pokelistData = try JSONEncoder().encode(self.pokelist)
-            let pokelistFromData = try JSONDecoder().decode([Pokemon].self, from: pokelistData)
-            
-            /// Assert
-            
-        } catch {
-            XCTAssert(false, "Could not update pokelist from an array of Pokemon.")
         }
     }
 }

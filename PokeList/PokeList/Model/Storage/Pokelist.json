@@ -5,14 +5,14 @@
         "hp": 48,
         "attack": 48,
         "defense": 48,
-        "types": ["normal"]
+        "types": [{"name": "normal"}]
     },
     {
         "id": 1,
-        "name": "bulbasaur",
+        "name": "Bulbasaur",
         "hp": 45,
         "attack": 49,
         "defense": 49,
-        "types": ["poison", "grass"]
+        "types": [{"name": "poison"}, {"name":"grass"}]
     }
 ]

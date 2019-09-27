@@ -21,4 +21,9 @@ class PoekTypeTests: XCTestCase {
             XCTAssertEqual(typeObject.color, TypeColor.types[type], "Initilized type color was incorret.")
         }
     }
+    
+    // GOOD: Initialize PokeType from json format
+    func testCorrectInitializerFromJson() {
+        
+    }
 }
