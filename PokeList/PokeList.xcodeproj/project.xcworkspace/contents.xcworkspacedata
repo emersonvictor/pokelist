@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/emersonvictor/Projects/pokelist/Poke&#x301;List/PokeList.xcodeproj">
+      location = "self:PokeList.xcodeproj">
    </FileRef>
 </Workspace>
