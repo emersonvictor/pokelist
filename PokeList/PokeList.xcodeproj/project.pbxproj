@@ -10,6 +10,7 @@
 		25E0A7A6473832CEF557A22C /* Pods_PokeListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570262317D02D459F697C785 /* Pods_PokeListTests.framework */; };
 		83CA352746E42ACE2376AD4D /* Pods_PokeList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EE4517AE5D58ADB8ED95D2 /* Pods_PokeList.framework */; };
 		BE35B8C4D41F9DEF1C9E7D74 /* Pods_PokeListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B140C0AF1C79EBFC6B28C /* Pods_PokeListUITests.framework */; };
+		D94A3BB823424058001096FC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94A3BB723424058001096FC /* CloudKit.framework */; };
 		D9D0D76023423E4A00ECC920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D75F23423E4A00ECC920 /* AppDelegate.swift */; };
 		D9D0D76323423E4A00ECC920 /* PokeList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D76123423E4A00ECC920 /* PokeList.xcdatamodeld */; };
 		D9D0D76523423E4A00ECC920 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D76423423E4A00ECC920 /* SceneDelegate.swift */; };
@@ -47,6 +48,8 @@
 		745A6CE49472CB35E9741B3E /* Pods-PokeList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeList.release.xcconfig"; path = "Target Support Files/Pods-PokeList/Pods-PokeList.release.xcconfig"; sourceTree = "<group>"; };
 		A57B140C0AF1C79EBFC6B28C /* Pods_PokeListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA94115EA741E5E7539E1D63 /* Pods-PokeList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeList.debug.xcconfig"; path = "Target Support Files/Pods-PokeList/Pods-PokeList.debug.xcconfig"; sourceTree = "<group>"; };
+		D94A3BB623424053001096FC /* PokeList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokeList.entitlements; sourceTree = "<group>"; };
+		D94A3BB723424058001096FC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D9D0D75C23423E4A00ECC920 /* PokeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D0D75F23423E4A00ECC920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9D0D76223423E4A00ECC920 /* PokeList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokeList.xcdatamodel; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83CA352746E42ACE2376AD4D /* Pods_PokeList.framework in Frameworks */,
+				D94A3BB823424058001096FC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +102,7 @@
 		654C3D3266E1C96E154EFD32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D94A3BB723424058001096FC /* CloudKit.framework */,
 				D9EE4517AE5D58ADB8ED95D2 /* Pods_PokeList.framework */,
 				570262317D02D459F697C785 /* Pods_PokeListTests.framework */,
 				A57B140C0AF1C79EBFC6B28C /* Pods_PokeListUITests.framework */,
@@ -115,7 +120,6 @@
 				472D62BA09ED7F8952FD4C0F /* Pods-PokeListUITests.debug.xcconfig */,
 				72F9E97A1B0393A8B78E3CD8 /* Pods-PokeListUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,8 +148,8 @@
 		D9D0D75E23423E4A00ECC920 /* PokeList */ = {
 			isa = PBXGroup;
 			children = (
-				D9D0D79923423EF300ECC920 /* Assets */,
 				D9D0D79423423E7000ECC920 /* Application */,
+				D9D0D79923423EF300ECC920 /* Assets */,
 				D9D0D79723423EAA00ECC920 /* Model */,
 				D9D0D79623423E8500ECC920 /* View */,
 				D9D0D79523423E7D00ECC920 /* ViewModel */,
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D0D76623423E4A00ECC920 /* Event.swift */,
+				D94A3BB623424053001096FC /* PokeList.entitlements */,
 				D9D0D76123423E4A00ECC920 /* PokeList.xcdatamodeld */,
 			);
 			path = Model;
@@ -596,6 +601,7 @@
 			baseConfigurationReference = BA94115EA741E5E7539E1D63 /* Pods-PokeList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PokeList/Model/PokeList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeList/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = XP4ML92KUD;
@@ -617,6 +623,7 @@
 			baseConfigurationReference = 745A6CE49472CB35E9741B3E /* Pods-PokeList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PokeList/Model/PokeList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeList/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = XP4ML92KUD;
