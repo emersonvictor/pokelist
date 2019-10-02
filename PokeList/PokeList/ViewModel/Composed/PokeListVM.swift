@@ -6,20 +6,32 @@
 //  Copyright © 2019 emer. All rights reserved.
 //
 
-import UIKit
+import CoreData
 
 class PokeListVM {
     
     // MARK: - Properties
-    private(set) var pokelist: [Pokemon]
+    let context = CoreDataManager().getContext()
+    var pokelist: [Pokemon]
     
     // MARK: - Initializer
     init() {
         self.pokelist = []
-    }
-    
-    // MARK: - Remove pokemon from PokeList
-    func removeFromPokelist(_ pokemon: Pokemon) {
         
+        // Fetch request
+        let fetchRequest = NSFetchRequest<Pokemon>(entityName: "Pokemon")
+        fetchRequest.predicate = NSPredicate(format: "isFavorite == true")
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "id", ascending: true)
+        ]
+        
+        // Perform fetch
+        do {
+            let pokelist = try self.context.fetch(fetchRequest)
+            self.pokelist = pokelist
+        } catch {
+            print(error)
+            self.pokelist = []
+        }
     }
 }

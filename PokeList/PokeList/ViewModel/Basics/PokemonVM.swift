@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class PokemonVM {
+    
+    // MARK: - Attributes
+    let pokemon: Pokemon
+    
+    // MARK: - Initializer
+    init(pokemon: Pokemon) {
+        self.pokemon = pokemon
+    }
+}
