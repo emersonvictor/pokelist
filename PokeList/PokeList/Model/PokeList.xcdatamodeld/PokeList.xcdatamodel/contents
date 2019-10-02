@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Event" representedClassName="Event" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Pokemon" representedClassName="Pokemon" syncable="YES" codeGenerationType="class">
+        <attribute name="attack" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="defense" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hp" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageLink" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="types" optional="YES" toMany="YES" minCount="1" maxCount="2" deletionRule="Nullify" destinationEntity="PokeType" inverseName="pokemon" inverseEntity="PokeType"/>
+    </entity>
+    <entity name="PokeType" representedClassName="PokeType" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="pokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="types" inverseEntity="Pokemon"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="PokeType" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Pokemon" positionX="-302.67578125" positionY="-79.12109375" width="128" height="148"/>
     </elements>
 </model>
