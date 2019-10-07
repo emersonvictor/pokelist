@@ -14,11 +14,14 @@ import UIKit
 @objc(PokeType)
 public class PokeType: NSManagedObject {
     convenience init(name: String) {
+        // CoreData context
+        let context = CoreDataStack.context
+        
         // Use default initializer to create an instace
-        self.init(context: CoreDataManager().getContext())
+        let description = NSEntityDescription.entity(forEntityName: "PokeType", in: context)
+        self.init(entity: description!, insertInto: context)
         
         // Set attributes
         self.name = name
-    
     }
 }

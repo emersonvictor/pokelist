@@ -8,18 +8,16 @@
 
 import CoreData
 
-class PokeListVM {
+class PokeListVM: NSObject {
     
     // MARK: - Properties
-    let context = CoreDataManager().getContext()
-    var pokelist: [Pokemon]
+    let context = CoreDataStack.context
+    let pokelist: [Pokemon]
     
     // MARK: - Initializer
-    init() {
-        self.pokelist = []
-        
+    override init() {
         // Fetch request
-        let fetchRequest = NSFetchRequest<Pokemon>(entityName: "Pokemon")
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "isFavorite == true")
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "id", ascending: true)
@@ -27,11 +25,13 @@ class PokeListVM {
         
         // Perform fetch
         do {
-            let pokelist = try self.context.fetch(fetchRequest)
-            self.pokelist = pokelist
+            self.pokelist = try fetchRequest.execute()
         } catch {
             print(error)
             self.pokelist = []
         }
+        
+        // Call NSObject initializer
+        super.init()
     }
 }

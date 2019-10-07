@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -17,10 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: PokeListView())
+//            window.rootViewController = UIHostingController(rootView: PokeListView())
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            window.rootViewController = main.instantiateInitialViewController()
             self.window = window
             window.makeKeyAndVisible()
         }
+        
     }
     
     // MARK: - Scene Lifecycle
@@ -29,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        print("Called when the scene has moved from an inactive state to an active state.")
+        PokeApiManager.shared.getPokemonList()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -41,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        CoreDataManager().saveContext()
+        CoreDataStack.saveContext()
         print("Called as the scene transitions from the foreground to the background.")
     }
     

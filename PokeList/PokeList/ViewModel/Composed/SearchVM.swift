@@ -9,18 +9,18 @@
 import CoreData
 
 class SearchVM {
-    let context = CoreDataManager().getContext()
+    let context = CoreDataStack.context
     
     func getPokemonList() -> [Pokemon] {
         // Fetch request
-        let fetchRequest = NSFetchRequest<Pokemon>(entityName: "Pokemon")
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "id", ascending: true)
         ]
         
         // Perform fetch
         do {
-            return try self.context.fetch(fetchRequest)
+            return try fetchRequest.execute()
         } catch {
             print(error)
             return []
@@ -29,7 +29,7 @@ class SearchVM {
     
     func searchPokemon(withName name: String) -> [Pokemon] {
         // Fetch request
-        let fetchRequest = NSFetchRequest<Pokemon>(entityName: "Pokemon")
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name CONTAINS[cd]", name)
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "id", ascending: true)
@@ -37,7 +37,7 @@ class SearchVM {
         
         // Perform fetch
         do {
-            return try self.context.fetch(fetchRequest)
+            return try fetchRequest.execute()
         } catch {
             print(error)
             return []
