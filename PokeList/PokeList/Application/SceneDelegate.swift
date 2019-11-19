@@ -16,15 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = UIHostingController(rootView: PokeListView())
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            window.rootViewController = main.instantiateInitialViewController()
-            self.window = window
-            window.makeKeyAndVisible()
-        }
-        
     }
     
     // MARK: - Scene Lifecycle
@@ -33,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        PokeApiManager.shared.getPokemonList()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -45,10 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        CoreDataStack.saveContext()
         print("Called as the scene transitions from the foreground to the background.")
     }
-    
-    
 }
 

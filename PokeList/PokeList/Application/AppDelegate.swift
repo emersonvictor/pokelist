@@ -24,25 +24,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
-    
-    // MARK: - Core Data stack
-    var persistentContainer: NSPersistentCloudKitContainer = {
-            let container = NSPersistentCloudKitContainer(name: "PokeList")
-            
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            
-            // Initialize the CloudKit schema
-            do {
-                try container.initializeCloudKitSchema()
-            } catch {
-                print("Unable to initialize CloudKit schema: \(error.localizedDescription)")
-            }
-
-            return container
-        }()
 }
 
