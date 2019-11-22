@@ -6,5 +6,6 @@ target 'PokeList' do
 
   # Pods for PokeList
   pod 'RealmSwift'
+  pod 'SnapKit', '~> 5.0.0'
 
 end
