@@ -6,4 +6,9 @@
 //  Copyright © 2019 emer. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
+
+final class Pokelist: Object {
+    let pokemon = List<Pokemon>()
+}
+
