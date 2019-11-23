@@ -14,12 +14,12 @@ final class PokemonTypeView: UILabel {
     required init(frame: CGRect = .zero, type: PokemonType) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(named: "\(type.rawValue)Type")
-        self.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = true
+        self.font = UIFont.systemFont(ofSize: 8, weight: .bold)
         self.textAlignment = .center
         self.textColor = .white
         self.text = type.rawValue.uppercased()
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
     }
     
     required init?(coder: NSCoder) {

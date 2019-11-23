@@ -12,7 +12,7 @@ struct PokemonDTO: Codable {
     let id: Int
     let name: String
     let types: [PokemonTypeDTO]
-    let stats: [StatDTO]
+    let stats: [StatsDTO]
     let sprite: SpriteDTO
 
     enum CodingKeys: String, CodingKey {

@@ -30,6 +30,9 @@ final class PokelistController: UIViewController {
     // MARK: - View model
     // TODO: - Implement view model
 
+    // MARK: - Expanded cells
+    var expandedCells: Set<IndexPath> = []
+    
     // MARK: - View controller lifecycle methods
     override func loadView() {
         super.loadView()
@@ -81,6 +84,20 @@ extension PokelistController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96
+        return self.expandedCells.contains(indexPath) ? 178 : 96
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! PokemonDetailCell
+        if self.expandedCells.contains(indexPath) {
+            self.expandedCells.remove(indexPath)
+            cell.isExpanded = false
+        } else {
+            self.expandedCells.insert(indexPath)
+            cell.isExpanded = true
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }

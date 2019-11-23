@@ -28,3 +28,4 @@ enum PokemonType: String {
     case dragon
     case fairy
 }
+

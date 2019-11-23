@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SnapKit
 
 final class PokemonDetailCell: UITableViewCell {
-
+    
     // MARK: - Components
     lazy var pokemonImage: UIImageView = {
         let view = UIImageView(image: UIImage(named: "ditto"))
@@ -36,14 +35,6 @@ final class PokemonDetailCell: UITableViewCell {
         return view
     }()
     
-    lazy var actionButtton: CellActionButton = {
-        let button = CellActionButton(pokemonIsSaved: false)
-        button.addTarget(self,
-                         action: #selector(didTouchActionButton),
-                         for: .touchUpInside)
-        return button
-    }()
-    
     lazy var primaryType: PokemonTypeView = {
         let view = PokemonTypeView(type: .normal)
         return view
@@ -54,19 +45,51 @@ final class PokemonDetailCell: UITableViewCell {
         return view
     }()
     
+    lazy var actionButtton: CellActionButton = {
+        let button = CellActionButton(pokemonIsSaved: false)
+        button.addTarget(self,
+                         action: #selector(didTouchActionButton),
+                         for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var hpProgress: StatsView = {
+        let view = StatsView(title: "HP", totalValue: 255, progressValue: 0)
+        return view
+    }()
+    
+    lazy var attackProgress: StatsView = {
+        let view = StatsView(title: "ATTACK", totalValue: 190, progressValue: 0)
+        return view
+    }()
+    
+    lazy var defenseProgress: StatsView = {
+        let view = StatsView(title: "DEFENSE", totalValue: 230, progressValue: 0)
+        return view
+    }()
+    
     // MARK: - Stacks
     lazy var cellContainer: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.axis = .vertical
+        stack.spacing = 20
+        stack.distribution = .fill
+        return stack
+    }()
+    
+    lazy var pokemonContainer: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.axis = .horizontal
         stack.spacing = 16
         stack.alignment = .center
+        stack.distribution = .fill
         return stack
     }()
     
     lazy var infoContainer: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.axis = .vertical
-        stack.spacing = 8
+        stack.spacing = 4
         stack.alignment = .leading
         return stack
     }()
@@ -79,8 +102,83 @@ final class PokemonDetailCell: UITableViewCell {
         return stack
     }()
     
+    lazy var statsContainer: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.axis = .vertical
+        stack.spacing = 10
+        return stack
+    }()
+    
     // MARK: - Delegate
     var buttonDelegate: ActionButtonDelegate?
+    
+    // MARK: - Cell state
+    var isExpanded = false {
+        didSet {
+            if self.isExpanded {
+                // HP label
+                UIView.animate(withDuration: 0.3) {
+                    self.hp.alpha = 0
+                    self.hp.isHidden = true
+                    self.infoContainer.layoutIfNeeded()
+                }
+                
+                UIView.animate(withDuration: 0.5,
+                               delay: 0.2,
+                               options: .transitionFlipFromTop,
+                               animations: {
+                    self.hpProgress.show()
+                }) { (_) in
+                    UIView.animate(withDuration: 0.4) {
+                        self.hpProgress.setProgress(withValue: 60/255)
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5,
+                               delay: 0.4,
+                               options: .transitionFlipFromTop,
+                               animations: {
+                    self.attackProgress.show()
+                }) { (_) in
+                    UIView.animate(withDuration: 0.4) {
+                        self.attackProgress.setProgress(withValue: 60/190)
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5,
+                               delay: 0.6,
+                               options: .transitionFlipFromTop,
+                               animations: {
+                    self.defenseProgress.show()
+                }) { (_) in
+                    UIView.animate(withDuration: 0.4) {
+                        self.defenseProgress.setProgress(withValue: 60/230)
+                    }
+                }
+            } else {
+                UIView.animate(withDuration: 0.5,
+                               delay: 0,
+                               options: .beginFromCurrentState,
+                               animations: {
+                    self.hpProgress.hide()
+                    self.attackProgress.hide()
+                    self.defenseProgress.hide()
+                }) { (_) in
+                    self.hpProgress.setProgress(withValue: 0)
+                    self.attackProgress.setProgress(withValue: 0)
+                    self.defenseProgress.setProgress(withValue: 0)
+                }
+                
+                UIView.animate(withDuration: 0.3,
+                               delay: 0.2,
+                               options: .beginFromCurrentState,
+                               animations: {
+                    self.hp.isHidden = false
+                    self.hp.alpha = 1
+                }, completion: nil)
+            }
+        }
+    }
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -103,9 +201,9 @@ final class PokemonDetailCell: UITableViewCell {
 extension PokemonDetailCell: CodeView {
     func buildViewHierarchy() {
         // Set cell container
-        self.cellContainer.addArrangedSubview(self.pokemonImage)
-        self.cellContainer.addArrangedSubview(self.infoContainer)
-        self.cellContainer.addArrangedSubview(self.actionButtton)
+        self.pokemonContainer.addArrangedSubview(self.pokemonImage)
+        self.pokemonContainer.addArrangedSubview(self.infoContainer)
+        self.pokemonContainer.addArrangedSubview(self.actionButtton)
         // Set info container
         self.infoContainer.addArrangedSubview(self.hp)
         self.infoContainer.addArrangedSubview(self.name)
@@ -115,18 +213,23 @@ extension PokemonDetailCell: CodeView {
         if let secondaryType = self.secondaryType {
             self.typeContainer.addArrangedSubview(secondaryType)
         }
-        // Add view
-        self.contentView.addSubview(cellContainer)
+        // Set stats container
+        self.statsContainer.addArrangedSubview(self.hpProgress)
+        self.statsContainer.addArrangedSubview(self.attackProgress)
+        self.statsContainer.addArrangedSubview(self.defenseProgress)
+        // Set cell container
+        self.cellContainer.addArrangedSubview(self.pokemonContainer)
+        self.cellContainer.addArrangedSubview(self.statsContainer)
+        // Add container to view
+        self.contentView.addSubview(self.cellContainer)
     }
     
     func setupConstratins() {
         // Cell container
         self.cellContainer.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 16,
-                                                             left: 16,
-                                                             bottom: 16,
-                                                             right: 16))
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().offset(16)
+            make.right.equalToSuperview().inset(16)
+            make.left.equalToSuperview().offset(16)
         }
         
         // Pokemon image
@@ -157,5 +260,8 @@ extension PokemonDetailCell: CodeView {
     
     func setupAdditionalConfiguration() {
         self.selectionStyle = .none
+        self.hpProgress.hide()
+        self.attackProgress.hide()
+        self.defenseProgress.hide()
     }
 }

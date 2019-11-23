@@ -1,5 +1,5 @@
 //
-//  StatDTO.swift
+//  StatsDTO.swift
 //  PokeList
 //
 //  Created by Emerson Victor on 19/11/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StatDTO: Codable {
+struct StatsDTO: Codable {
     typealias StatInfoDTO = InfoDTO
     
     let baseStat: Int
